@@ -1,24 +1,21 @@
-def main():
-    # 1 & 2. Ask for a positive integer and validate
-    while True:
-        try:
-            n = int(input("Input: "))
-            if n >= 1:
-                break
-            # If n < 1, the loop continues (asking again)
-        except ValueError:
-            # Handles non-integer inputs to prevent crashing
-            continue
+#include <stdio.h>
 
-    print("\nOutput:")
-    # 3. Print the half-pyramid
-    # Outer loop for each row
-    for i in range(1, n + 1):
-        # Inner loop to print '#' symbols based on current row number
-        for j in range(i):
-            print("#", end="")
-        # Move to the next line after finishing a row
-        print()
+int main() {
+    int n;
 
-if __name__ == "__main__":
-    main()
+    // Input validation: ensure n >= 1
+    do {
+        printf("Enter a positive integer: ");
+        scanf("%d", &n);
+    } while (n < 1);
+
+    // Half pyramid
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("#");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
